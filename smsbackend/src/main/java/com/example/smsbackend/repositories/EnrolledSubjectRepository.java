@@ -19,6 +19,12 @@ public interface EnrolledSubjectRepository extends JpaRepository<EnrolledSubject
 
     // Custom query to find enrolled subjects by student
     List<EnrolledSubject> findByStudent(User student);
+
+    // Add method to delete enrolled subjects by student ID
+    void deleteByStudentId(Integer studentId);
+
+    // Add method to delete enrolled subjects by subject ID
+    void deleteBySubjectId(Long subjectId);  // New method to delete by subjectId
 }
 
 

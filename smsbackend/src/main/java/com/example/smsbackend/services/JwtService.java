@@ -113,4 +113,15 @@ public class JwtService {
         byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         return Keys.hmacShaKeyFor(keyBytes);
     }
+
+    // In JwtService.java
+    public boolean validateToken(String token) {
+        try {
+            // Extract expiration and other claims, and check if the token is expired
+            return !isTokenExpired(token);
+        } catch (Exception e) {
+            return false; // Invalid token or any other error
+        }
+    }
+
 }
